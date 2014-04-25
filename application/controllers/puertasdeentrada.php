@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+    <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 include_once('MasterControllerColumbia.php');
 
 class PuertasDeEntrada extends MasterControllerColumbia
@@ -13,7 +13,7 @@ class PuertasDeEntrada extends MasterControllerColumbia
 		$this->show(array(), false);
 	}
 		
-	public function getActividades()
+	public function getActividades() //ajax
 	{
 		$sqlHorarios = "
 			SELECT
