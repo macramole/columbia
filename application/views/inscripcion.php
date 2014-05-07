@@ -83,7 +83,8 @@
 					<?php endforeach; ?>
 				</td>
 			</tr>
-			<tr>
+			<?php if (!$disciplina['gratis']) : ?>
+            <tr>
 				<th>Descuentos especiales:</th>
 				<td class="descuentosEspeciales">
 					<ul>
@@ -111,6 +112,7 @@
 					<span class="noCombinable"><?= $configuracion['descuentoPoblacional'] ?>% de descuento no combinable con ningún otro.</span>
 				</td>
 			</tr>
+            <?php endif; ?>
 			<tr>
 				<th>Monto mensual a pagar:</th>
 				<td class="plata">$<span id="plata">0</span></td>

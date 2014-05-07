@@ -155,18 +155,31 @@ class Inscripciones extends MasterControllerColumbia
 				
 				foreach ( $arrHorarios as &$horario )
 				{
-					$disciplina['horarios'][$horario['frecuencia']][] = $horario;
+					if ( $disciplina['gratis'] )
+                        $horario['precio'] = 0;
+                    
+                    $disciplina['horarios'][$horario['frecuencia']][] = $horario;
 				}
 					
 				$configuracion = magico_getGlobalConfig();
-
-				if ( intval($disciplina['precio']) )
-				{
-					$configuracion['precioActividadesRegulares'] = $disciplina['precio'];
-					$configuracion['descuento2dias'] = $disciplina['descuento2dias'];
-					$configuracion['descuento3dias'] = $disciplina['descuento3dias'];
-					$configuracion['descuento4dias'] = $disciplina['descuento4dias'];
-				}
+                
+                if ( !$disciplina['gratis'] )
+                {
+                    if ( intval($disciplina['precio']) )
+                    {
+                        $configuracion['precioActividadesRegulares'] = $disciplina['precio'];
+                        $configuracion['descuento2dias'] = $disciplina['descuento2dias'];
+                        $configuracion['descuento3dias'] = $disciplina['descuento3dias'];
+                        $configuracion['descuento4dias'] = $disciplina['descuento4dias'];
+                    }
+                }
+                else
+                {
+                    $configuracion['precioActividadesRegulares'] = 
+                    $configuracion['descuento2dias'] = 
+                    $configuracion['descuento3dias'] = 
+                    $configuracion['descuento4dias'] = 0;
+                }
 					
 				$this->setTitle( 'Inscripción : ' . $disciplina['title'] );
 				$this->addContentPage('inscripcion', array('disciplina' => $disciplina, 'configuracion' => $configuracion));
@@ -614,8 +627,14 @@ class Inscripciones extends MasterControllerColumbia
 					
 					//registro dias asociados
 					
-					if ( !$inscripcionActual )
+					if ( !$inscripcionActual ) {
 						$inscripcionActual = array('fechaDesde' => null, 'fechaHasta' => null, 'activo' => 0);
+                    }
+                    
+                    //Checkeo gratis
+                    $disciplina = $this->db->get_where('disciplinas', array('id' => $_POST['idDisciplina']))->row_array();
+                    if ( $disciplina['gratis'] )
+                        $inscripcionActual['activo'] = 1;
 					
 					$insert_items = array();
 					

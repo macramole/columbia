@@ -209,7 +209,8 @@ class Usuarios extends MasterControllerColumbia
 				aae.`idDisciplinaActividadEspecial` = dae.`id`
 			WHERE
 				aae.`idAlumno` = ? AND
-				aae.`vacante` = 1
+				aae.`vacante` = 1 AND
+                fecha >= NOW()
 		";
 		
 		$arrActividadesEspeciales = $this->db->query($sqlActividadesEspeciales, array( $this->siteuser->getUserData('id') ))->result_array();

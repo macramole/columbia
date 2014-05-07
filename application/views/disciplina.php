@@ -51,33 +51,36 @@
 				<a href="javascript:void(0)" class="inscribirse precios">Arancel y descuentos</a>
 				<div class="preciosInfo">
 					<?php if ( $disciplina['arancelYDescuentos'] ) : ?>
-						<div class="arancelYDescuentosWrapper">
+						<div class="arancelYDescuentosWrapper" <?php if ( $disciplina['gratis'] ) : ?>style="margin-bottom: 0"<?php endif;?>>
 							<?= $disciplina['arancelYDescuentos'] ?>
 						</div>
 
 						<?php magico_setEditable($disciplina['id'], 'Disciplina', 'arancelYDescuentos', 'section#disciplina .arancelYDescuentosWrapper') ?>
 					<?php endif;?>
-					<?php foreach( $disciplina['precios'] as $nombreFrecuencia => $frecuencia ) : ?>
-					<h4>Frecuencia <?= $nombreFrecuencia ?>:</h4>
-					<ul>
-						<?php foreach( $frecuencia as $precio ) : ?>
-						<li><div class="desc"><?= $precio['desc'] ?></div>  <div class="precio"><?= $precio['precio'] ?></div></li>
-						<?php endforeach; ?>
-					</ul>
-					<?php endforeach; ?>
-					
-					<div class="clear"></div>
-					
-					<div class="descuento">
-						Obtenés un 20% de descuento en TODAS nuestras actividades, si sos:
-						<ul>
-							<li>Estudiante menor de 25 años</li>
-							<li>Jubilado / pensionado</li>
-							<li>Segundo integrante del núcleo familiar que realiza la misma actividad en la misma fecha (Padre-esposo, Madre-esposa, hija/o-hermana/o)</li>
-						</ul>
-						<small>Excepto los siguientes cursos: La Senda del Chamán, Sanación Energética,  
-							Formación Vortex Healing, Meditación de la Conciencia P.U.R.A. Este descuento no es combinable con ningún otro.</small>
-					</div>
+                    
+                    <?php if ( !$disciplina['gratis'] ) : ?>
+                        <?php foreach( $disciplina['precios'] as $nombreFrecuencia => $frecuencia ) : ?>
+                        <h4>Frecuencia <?= $nombreFrecuencia ?>:</h4>
+                        <ul>
+                            <?php foreach( $frecuencia as $precio ) : ?>
+                            <li><div class="desc"><?= $precio['desc'] ?></div>  <div class="precio"><?= $precio['precio'] ?></div></li>
+                            <?php endforeach; ?>
+                        </ul>
+                        <?php endforeach; ?>
+
+                        <div class="clear"></div>
+
+                        <div class="descuento">
+                            Obtenés un 20% de descuento en TODAS nuestras actividades, si sos:
+                            <ul>
+                                <li>Estudiante menor de 25 años</li>
+                                <li>Jubilado / pensionado</li>
+                                <li>Segundo integrante del núcleo familiar que realiza la misma actividad en la misma fecha (Padre-esposo, Madre-esposa, hija/o-hermana/o)</li>
+                            </ul>
+                            <small>Excepto los siguientes cursos: La Senda del Chamán, Sanación Energética,  
+                                Formación Vortex Healing, Meditación de la Conciencia P.U.R.A. Este descuento no es combinable con ningún otro.</small>
+                        </div>
+                    <?php endif; ?>
 					
 					<!--<a href="#" class="descarga" target="blank">
 						<img src="images/pdf_download.jpg" />
