@@ -5,10 +5,20 @@ class Docentes extends MasterControllerColumbia
 {	
 	public function index()
 	{
-		$arrDocentes = magico_getList('docentes', 162, 108, null, 't.title ASC');
+        $arrDocentes = magico_getList('docentes', 162, 108, null, 't.title ASC');
+        $this->db->order_by('weight ASC');
+        $arrCategorias = $this->db->get('docentes_categorias')->result_array();
+        $docentes = array();
+        $categorias = array();
+        
+        foreach( $arrDocentes as &$docente )
+            $docentes[$docente['idDocenteCategoria']][] = $docente;
+        
+        foreach( $arrCategorias as $categoria )
+            $categorias[$categoria['id']] = $categoria;
 		
 		$this->setTitle( 'Docentes' );
-		$this->addContentPage('docentes', array('arrDocentes' => $arrDocentes));
+		$this->addContentPage('docentes', array('docentes' => $docentes, 'categorias' => $categorias));
 		$this->show();
 	}
 

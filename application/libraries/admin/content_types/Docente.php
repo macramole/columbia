@@ -1,4 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+include_once('application/libraries/admin/content_types/DocenteCategoria.php');
 
 class Docente extends ContentType {
 	
@@ -11,9 +12,13 @@ class Docente extends ContentType {
 		$this->returnURL = 'docentes/{title}';
 		
 		/*** Fields ***/
-		$this->fields['title'] = new Textbox('Nombre y Apellido');
+		$this->fields['idDocenteCategoria'] = new DatabaseSelect(new DocenteCategoria(), null, false, "Categoria");
+        $this->fields['title'] = new Textbox('Nombre y Apellido');
 		$this->fields['imagen'] = new FileUpload();
 		$this->fields['texto'] = new TextEditor('Bio');
+        $this->fields['disciplina'] = new Textbox('Disciplina','U otro texto para la segunda línea');
+        $this->fields['pais'] = new Textbox('País de origen','U otro texto para la tercera línea');
+        $this->fields['anio'] = new Textbox('Año','Sólo para los que pasaron por la Fundación');
 		
 		/*** Extras ***/	
 		$this->fields['imagen']->isImage();

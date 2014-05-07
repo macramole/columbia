@@ -157,6 +157,7 @@ $config['magico_nav'] = array(
 	'Link' => array(),
 	'Equipo' => array('title' => 'Miembro del equipo'),
 	'EquipoCategoria' => array('noAdd' => 1, 'title' => 'Categoria de equipo'),
+	'DocenteCategoria' => array('noAdd' => 1, 'title' => 'Categoria de docente'),
 	'Sala' => array('noAdd' => 1),
 	'Home' => array('noAdd' => 1)
 	//'Admin' => array('noAdd' => 1, 'title' => 'Administradores')

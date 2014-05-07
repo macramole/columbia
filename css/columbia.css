@@ -1055,35 +1055,61 @@ section#institucional a.filosofia span
 	margin-left: 20px;
 }
 
-/** EQUIPO **/
-section#equipo
+/** EQUIPO Y DOCENTES **/
+section#equipo, section#docentes
 {
 	
 }
 
-section#equipo > .texto
+section#equipo > .texto,
+section#docentes > .texto
 {
 	margin-bottom: 20px;
 }
 
-section#equipo h2 {
+section#equipo h2,
+section#docentes h2 
+{
 	font-size: 24px;
 	color: #93278f;
 	margin: 10px 0 20px;
 }
 
-section#equipo ul li span.actividad {
+section#equipo ul li span.actividad,
+section#docentes ul li span.disciplina
+{
 	color: #6D6E71;
 	font-weight: normal;
 	font-style: italic;
 }
 
-section#equipo ul.chicos
+section#docentes ul li span.pais
+{
+    color: #6D6E71;
+	font-weight: normal;
+    display: block;
+}
+
+section#docentes ul li span.nombre
+{
+    color: #6D6E71;
+    font-weight: 600;
+}
+
+section#docentes ul li
+{
+    height: 180px;
+}
+
+section#equipo ul.chicos,
+section#docentes ul.chicos
 {
 	margin-top: 60px;
 }
 
-section#equipo ul.chicos li {
+section#equipo ul.chicos li,
+section#docentes ul.chicos li
+{
 	width: 43.5%;
 	height: auto;
 	margin-bottom: 0;

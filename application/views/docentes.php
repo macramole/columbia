@@ -1,19 +1,33 @@
 <section id="docentes" class="listadoFotos">
 	<h1>Docentes</h1>
-	<?php if ( count($arrDocentes) ) : ?>
-		<ul>
-			<?php foreach( $arrDocentes as $docente ) : ?>
-			<li>
-				<a href="<?= $docente['url'] ?>">
-					<img src="<?= $docente['imagen'] ?>" />
-					<?= $docente['title'] ?> <span>[+]</span>
-				</a>
-			</li>
+	<?php if ( count($docentes) ) : ?>
+		<ul class="categorias">
+			<?php foreach($categorias as $idCategoria => $categoria) : ?>
+				<?php if ( count($docentes[$idCategoria]) ) : ?>
+					<li>
+						<?php if ( $categoria['title'] != 'Permanentes' ) : ?>
+                        <h2><?= $categoria['title'] ?></h2>
+                        <?php endif; ?>
+                        <ul class="principales" rel="<?=$idCategoria?>">
+                            <?php foreach($docentes[$idCategoria] as $key => $miembro ) : ?>
+                            <li>
+                                <a href="<?= $miembro['url'] ?>">
+                                    <img src="<?= $miembro['imagen'] ?>" />
+                                    <span class="nombre"><?= $miembro['title'] ?></span> <span>[+]</span> <br />
+                                    <span class="disciplina"><?= $miembro['disciplina'] ?></span>
+                                    <span class="pais"><?= $miembro['pais'] ?></span>
+                                </a>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
+                        <div class="clear"></div>
+						<?php magico_setData($docentes[$idCategoria], 'Docente', "section#docentes ul[rel=\"$idCategoria\"] li") ?>
+					</li>
+                    <div class="clear"></div>
+				<?php endif; ?>
 			<?php endforeach; ?>
 		</ul>
-	<?php else : ?>
-		<div class="noContent">No hay docentes cargados.</div>
 	<?php endif; ?>
 	
-	<?php magico_setData($arrDocentes, 'Docente', 'section#docentes ul li')  ?>
+	<?php //magico_setData($categorias, 'DocenteCategoria', 'section#docentes ul.categorias > li', MAGICO_SORTABLE)  ?>
 </section>
