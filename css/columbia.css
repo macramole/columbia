@@ -1096,7 +1096,7 @@ section#docentes ul li span.nombre
     font-weight: 600;
 }
 
-section#docentes ul li
+section#docentes ul.principales li
 {
     height: 180px;
 }
@@ -1115,6 +1115,38 @@ section#docentes ul.chicos li
 	margin-bottom: 0;
 }
 
+section#docentes .añoWrapper
+{
+    clear: both;
+    max-height: 24px;
+    overflow: hidden;
+    
+    transition: max-height 1s;
+}
+
+section#docentes .añoWrapper.visible
+{
+    max-height: 600px;
+}
+
+section#docentes .añoWrapper .año
+{
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+section#docentes .añoWrapper .año img
+{
+    display: inline;
+    vertical-align: bottom;
+    margin-left: 5px;   
+}
+
+section#docentes .añoWrapper li
+{
+    transition: opacity 0.5s;
+}
 /******** NOVEDAD ********/
 section.nota h1 {
 	float: left;

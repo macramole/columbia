@@ -77,8 +77,6 @@
                                 <li>Jubilado / pensionado</li>
                                 <li>Segundo integrante del núcleo familiar que realiza la misma actividad en la misma fecha (Padre-esposo, Madre-esposa, hija/o-hermana/o)</li>
                             </ul>
-                            <small>Excepto los siguientes cursos: La Senda del Chamán, Sanación Energética,  
-                                Formación Vortex Healing, Meditación de la Conciencia P.U.R.A. Este descuento no es combinable con ningún otro.</small>
                         </div>
                     <?php endif; ?>
 					
