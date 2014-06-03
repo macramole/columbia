@@ -83,7 +83,7 @@
 					<?php endforeach; ?>
 				</td>
 			</tr>
-			<?php if (!$disciplina['gratis']) : ?>
+			<?php if (!$disciplina['gratis'] && $disciplina['hayDescuento']) : ?>
             <tr>
 				<th>Descuentos especiales:</th>
 				<td class="descuentosEspeciales">

@@ -70,6 +70,7 @@
 
                         <div class="clear"></div>
 
+                        <?php if ( $disciplina['hayDescuento'] ) : ?>
                         <div class="descuento">
                             Obtenés un 20% de descuento en TODAS nuestras actividades, si sos:
                             <ul>
@@ -77,6 +78,11 @@
                                 <li>Jubilado / pensionado</li>
                                 <li>Segundo integrante del núcleo familiar que realiza la misma actividad en la misma fecha (Padre-esposo, Madre-esposa, hija/o-hermana/o)</li>
                             </ul>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <div class="cupoBecas">
+                            Esta actividad cuenta con un cupo de becas
                         </div>
                     <?php endif; ?>
 					

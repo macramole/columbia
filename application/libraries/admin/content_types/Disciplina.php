@@ -25,6 +25,7 @@ class Disciplina extends ContentType {
 		$this->fields['requisitos'] = new TextEditor();
 		$this->fields['arancelYDescuentos'] = new TextEditor('Arancel y descuentos');
 		
+        $this->fields['hayDescuento'] = new Checkbox('Descuento poblacional', '', true);
         $this->fields['gratis'] = new Checkbox();
 		$this->fields['precio'] = new Textbox('Precio', 'Se usará este precio en vez del de la configuración general');
 		$this->fields['descuento2dias'] = new Textbox('Monto por dos días', 'El monto que se le suma al precio por dos días de esta actividad');
