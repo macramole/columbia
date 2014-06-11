@@ -163,7 +163,7 @@ class Inscripciones extends MasterControllerColumbia
 					
 				$configuracion = magico_getGlobalConfig();
                 
-                if ( !$disciplina['gratis'] && $disciplina['hayDescuento'] )
+                if ( !$disciplina['gratis'] )
                 {
                     if ( intval($disciplina['precio']) )
                     {
